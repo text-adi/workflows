@@ -18,3 +18,11 @@ jobs:
       - name: Check
         run: |
           docker run --rm -i -v ./hadolint.yaml:/.config/hadolint.yaml ghcr.io/hadolint/hadolint < Dockerfile
+
+  lint-entrypoint:
+    name: Test bash script
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check
+        uses: ludeeus/action-shellcheck@master
